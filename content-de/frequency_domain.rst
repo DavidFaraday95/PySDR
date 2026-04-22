@@ -8,14 +8,14 @@ Dieses Kapitel führt den Frequenzbereich ein und behandelt Fourier-Reihen, Four
 
 Einer der coolsten Nebeneffekte beim Erlernen von DSP und drahtloser Kommunikation ist, dass du auch lernst, im Frequenzbereich zu denken. Die meiste Erfahrung der Menschen beim *Arbeiten* im Frequenzbereich beschränkt sich auf das Einstellen der Bass-/Mitten-/Höhen-Regler im Audiosystem eines Autos. Die meiste Erfahrung beim *Betrachten* von etwas im Frequenzbereich beschränkt sich auf das Sehen eines Audio-Equalizers, wie in diesem Clip:
 
-.. image:: ../_images/audio_equalizer.webp
+.. image:: ../_images_de/audio_equalizer.webp
    :align: center
 
 Am Ende dieses Kapitels wirst du verstehen, was der Frequenzbereich wirklich bedeutet, wie man zwischen Zeit und Frequenz konvertiert (und was dabei passiert), und einige interessante Prinzipien, die wir in unserem gesamten Studium von DSP und SDR verwenden werden. Am Ende dieses Lehrbuchs wirst du garantiert ein Meister im Arbeiten im Frequenzbereich sein!
 
 Zunächst: Warum schauen wir uns Signale gerne im Frequenzbereich an? Hier sind zwei Beispielsignale, sowohl im Zeit- als auch im Frequenzbereich dargestellt.
 
-.. image:: ../_images/time_and_freq_domain_example_signals.png
+.. image:: ../_images_de/time_and_freq_domain_example_signals.png
    :scale: 40 %
    :align: center
    :alt: Two signals in the time domain may look like noise, but in the frequency domain we see additional features
@@ -28,21 +28,21 @@ Fourier-Reihe
 
 Die Grundlagen des Frequenzbereichs beginnen mit dem Verständnis, dass jedes Signal als Summe von Sinuswellen dargestellt werden kann. Wenn wir ein Signal in seine zusammensetzenden Sinuswellen zerlegen, nennen wir das eine Fourier-Reihe. Hier ist ein Beispiel für ein Signal, das nur aus zwei Sinuswellen besteht:
 
-.. image:: ../_images/summing_sinusoids.svg
+.. image:: ../_images_de/summing_sinusoids.svg
    :align: center
-   :target: ../_images/summing_sinusoids.svg
+   :target: ../_images_de/summing_sinusoids.svg
    :alt: Simple example of how a signal can be made up of multiple sinusoids, demonstrating the Fourier Series
 
 Hier ist ein weiteres Beispiel; die rote Kurve unten approximiert eine Sägezahnwelle durch Summierung von bis zu 10 Sinuswellen. Wir können sehen, dass es keine perfekte Rekonstruktion ist – es würde eine unendliche Anzahl von Sinuswellen benötigen, um diese Sägezahnwelle aufgrund der scharfen Übergänge zu reproduzieren:
 
-.. image:: ../_images/fourier_series_triangle.gif
+.. image:: ../_images_de/fourier_series_triangle.gif
    :scale: 70 %
    :align: center
    :alt: Animation of the Fourier series decomposition of a triangle wave (a.k.a. sawtooth)
 
 Einige Signale benötigen mehr Sinuswellen als andere, und einige benötigen eine unendliche Anzahl, obwohl sie immer mit einer begrenzten Anzahl approximiert werden können. Hier ist ein weiteres Beispiel für ein Signal, das in eine Reihe von Sinuswellen zerlegt wird:
 
-.. image:: ../_images/fourier_series_arbitrary_function.gif
+.. image:: ../_images_de/fourier_series_arbitrary_function.gif
    :scale: 70 %
    :align: center
    :alt: Animation of the Fourier series decomposition of an arbitrary function made up of square pulses
@@ -55,9 +55,9 @@ Um zu verstehen, wie wir ein Signal in Sinuswellen oder Sinusoide zerlegen könn
 
 **Amplitude** gibt die „Stärke" der Welle an, während **Frequenz** die Anzahl der Wellen pro Sekunde ist. **Phase** wird verwendet, um darzustellen, wie die Sinuswelle in der Zeit verschoben ist, von 0 bis 360 Grad (oder 0 bis :math:`2\pi`), aber sie muss relativ zu etwas sein, um eine Bedeutung zu haben, z. B. zwei Signale mit der gleichen Frequenz, die 30 Grad außer Phase zueinander sind.
 
-.. image:: ../_images/amplitude_phase_period.svg
+.. image:: ../_images_de/amplitude_phase_period.svg
    :align: center
-   :target: ../_images/amplitude_phase_period.svg
+   :target: ../_images_de/amplitude_phase_period.svg
    :alt: Reference diagram of amplitude, phase, and frequency of a sine wave (a.k.a. sinusoid)
 
 An diesem Punkt hast du vielleicht erkannt, dass ein „Signal" im Wesentlichen nur eine Funktion ist, die normalerweise „über die Zeit" dargestellt wird (d. h. die x-Achse). Ein weiteres Attribut, das leicht zu merken ist, ist die **Periode**, die die Umkehrung der **Frequenz** ist. Die **Periode** eines Sinusoids ist die Zeitspanne in Sekunden, die die Welle benötigt, um einen Zyklus abzuschließen. Daher ist die Einheit der Frequenz 1/Sekunden oder Hz.
@@ -74,7 +74,7 @@ Wir haben festgestellt, dass Signale als Sinuswellen dargestellt werden können,
 
 Hier sieht eine Sinuswelle mit Frequenz f im Zeit- und Frequenzbereich aus:
 
-.. image:: ../_images/sine-wave.png
+.. image:: ../_images_de/sine-wave.png
    :scale: 70 %
    :align: center
    :alt: The time-frequency Fourier pair of a sine wave, which is an impulse in the frequency domain
@@ -83,7 +83,7 @@ Der Zeitbereich sollte sehr vertraut aussehen. Es ist eine oszillierende Funktio
 
 Was passiert nun, wenn wir einen Impuls im Zeitbereich haben? Stell dir eine Tonaufnahme vor, bei der jemand in die Hände klatscht oder einen Nagel mit einem Hammer schlägt. Dieses Zeit-Frequenz-Paar ist etwas weniger intuitiv.
 
-.. image:: ../_images/impulse.png
+.. image:: ../_images_de/impulse.png
    :scale: 70 %
    :align: center
    :alt: The time-frequency Fourier pair of an impulse in the time domain, which is a horizontal line (all frequencies) in the frequency domain
@@ -92,16 +92,16 @@ Wie wir sehen können, ist eine Spitze/ein Impuls im Zeitbereich im Frequenzbere
 
 Als nächstes schauen wir uns die Zeit- und Frequenzbereichsdarstellungen einer Rechteckwelle an:
 
-.. image:: ../_images/square-wave.svg
+.. image:: ../_images_de/square-wave.svg
    :align: center
-   :target: ../_images/square-wave.svg
+   :target: ../_images_de/square-wave.svg
    :alt: The time-frequency Fourier pair of a square wave, which is a sinc (sin(x)/x function) in the frequency domain
 
 Auch dies ist weniger intuitiv, aber wir können sehen, dass der Frequenzbereich eine starke Spitze hat, die zufällig bei der Frequenz der Rechteckwelle liegt, aber es gibt mehr Spitzen, wenn wir in höhere Frequenzen gehen. Dies liegt an der schnellen Änderung im Zeitbereich, genau wie im vorherigen Beispiel. Aber es ist nicht flach in der Frequenz. Es hat Spitzen in Abständen, und der Pegel nimmt langsam ab (obwohl er für immer weitergeht). Eine Rechteckwelle im Zeitbereich hat ein sin(x)/x-Muster im Frequenzbereich (a.k.a. die Sinc-Funktion).
 
 Was passiert, wenn wir ein konstantes Signal im Zeitbereich haben? Ein konstantes Signal hat keine „Frequenz". Schauen wir mal:
 
-.. image:: ../_images/dc-signal.png
+.. image:: ../_images_de/dc-signal.png
    :scale: 80 %
    :align: center
    :alt: The time-frequency Fourier pair of a DC signal, which is an impulse at 0 Hz in the frequency domain
@@ -162,16 +162,16 @@ Diese Eigenschaft ist wahrscheinlich die einfachste zu verstehen. Wenn wir zwei 
 
 Der Term links von x(t) ist das, was wir einen „komplexen Sinus" oder „komplexen Exponential" nennen. Im Moment müssen wir nur wissen, dass es im Wesentlichen nur eine Sinuswelle bei Frequenz :math:`f_0` ist. Diese Eigenschaft sagt uns, dass wenn wir ein Signal :math:`x(t)` nehmen und es mit einer Sinuswelle multiplizieren, wir im Frequenzbereich :math:`X(f)` erhalten, das jedoch um eine bestimmte Frequenz :math:`f_0` verschoben ist. Diese Frequenzverschiebung lässt sich leichter visualisieren:
 
-.. image:: ../_images/freq-shift.svg
+.. image:: ../_images_de/freq-shift.svg
    :align: center
-   :target: ../_images/freq-shift.svg
+   :target: ../_images_de/freq-shift.svg
    :alt: Depiction of a frequency shift of a signal in the frequency domain
 
 Frequenzverschiebung ist ein wesentlicher Bestandteil von DSP, da wir Signale aus vielen Gründen in der Frequenz nach oben und unten verschieben wollen. Diese Eigenschaft sagt uns, wie das geht (mit einer Sinuswelle multiplizieren). Hier ist eine weitere Möglichkeit, diese Eigenschaft zu visualisieren:
 
-.. image:: ../_images/freq-shift-diagram.svg
+.. image:: ../_images_de/freq-shift-diagram.svg
    :align: center
-   :target: ../_images/freq-shift-diagram.svg
+   :target: ../_images_de/freq-shift-diagram.svg
    :alt: Visualization of a frequency shift by multiplying by a sine wave or sinusoid
 
 3. Zeitskalierungseigenschaft:
@@ -181,9 +181,9 @@ Frequenzverschiebung ist ein wesentlicher Bestandteil von DSP, da wir Signale au
 
 Auf der linken Seite der Gleichung sehen wir, dass wir unser Signal x(t) im Zeitbereich skalieren. Hier ist ein Beispiel für ein Signal, das in der Zeit skaliert wird, und dann was mit den Frequenzbereichsversionen passiert.
 
-.. image:: ../_images/time-scaling.svg
+.. image:: ../_images_de/time-scaling.svg
    :align: center
-   :target: ../_images/time-scaling.svg
+   :target: ../_images_de/time-scaling.svg
    :alt: Depiction of the time scaling Fourier transform property in both time and frequency domain
 
 Skalierung in der Zeit schrumpft oder dehnt das Signal im Wesentlichen auf der x-Achse. Was uns diese Eigenschaft sagt, ist, dass die Skalierung im Zeitbereich eine umgekehrte Skalierung im Frequenzbereich verursacht. Wenn wir zum Beispiel Bits schneller übertragen, müssen wir mehr Bandbreite verwenden. Die Eigenschaft hilft zu erklären, warum Signale mit höherer Datenrate mehr Bandbreite/Spektrum belegen. Wenn Zeit-Frequenz-Skalierung proportional statt umgekehrt proportional wäre, könnten Mobilfunkanbieter so viele Bits pro Sekunde übertragen, wie sie wollten, ohne Milliarden für das Spektrum zu bezahlen! Leider ist das nicht der Fall.
@@ -199,15 +199,15 @@ Es wird die Faltungseigenschaft genannt, weil wir im Zeitbereich x(t) und y(t) f
 
 Bevor wir weitermachen, um kurz zu erklären, warum diese Eigenschaft so wichtig ist, betrachte diese Situation: Du hast ein Signal, das du empfangen möchtest, und es gibt ein störendes Signal daneben.
 
-.. image:: ../_images/two-signals.svg
+.. image:: ../_images_de/two-signals.svg
    :align: center
-   :target: ../_images/two-signals.svg
+   :target: ../_images_de/two-signals.svg
 
 Das Konzept der Maskierung wird in der Programmierung häufig verwendet, also lass es uns hier verwenden. Was wäre, wenn wir die folgende Maske erstellen und sie mit dem Signal oben multiplizieren könnten, um das unerwünschte herauszufiltern?
 
-.. image:: ../_images/masking.svg
+.. image:: ../_images_de/masking.svg
    :align: center
-   :target: ../_images/masking.svg
+   :target: ../_images_de/masking.svg
 
 Wir führen DSP-Operationen normalerweise im Zeitbereich durch, also nutzen wir die Faltungseigenschaft, um zu sehen, wie wir diese Maskierung im Zeitbereich durchführen können. Sagen wir, x(t) ist unser empfangenes Signal. Sei Y(f) die Maske, die wir im Frequenzbereich anwenden wollen. Das bedeutet, y(t) ist die Zeitbereichsdarstellung unserer Maske, und wenn wir sie mit x(t) falten, können wir das unerwünschte Signal „herausfiltern".
 
@@ -242,25 +242,25 @@ Zurück zur Fourier-Transformation. Ich habe dir die Gleichung für die diskrete
 
 Die FFT ist eine Funktion mit einem Eingang und einem Ausgang. Sie konvertiert ein Signal von Zeit in Frequenz:
 
-.. image:: ../_images/fft-block-diagram.svg
+.. image:: ../_images_de/fft-block-diagram.svg
    :align: center
-   :target: ../_images/fft-block-diagram.svg
+   :target: ../_images_de/fft-block-diagram.svg
    :alt: FFT is a function with one input (time domain) and one output (frequency domain)
 
 Wir werden in diesem Lehrbuch nur 1D-FFTs behandeln (2D wird für die Bildverarbeitung und andere Anwendungen verwendet). Für unsere Zwecke stell dir die FFT-Funktion als eine Funktion mit einem Eingang vor: ein Vektor von Samples, und einem Ausgang: die Frequenzbereichsversion dieses Vektors von Samples. Die Größe des Ausgangs ist immer gleich der Größe des Eingangs. Wenn ich 1.024 Samples in die FFT eingebe, erhalte ich 1.024 zurück. Der verwirrende Teil ist, dass der Ausgang immer im Frequenzbereich liegt, und daher ändert sich die „Spanne" der x-Achse, wenn wir sie darstellen würden, nicht basierend auf der Anzahl der Samples im Zeitbereichseingang. Visualisieren wir das, indem wir die Eingangs- und Ausgangsarrays zusammen mit den Einheiten ihrer Indizes betrachten:
 
-.. image:: ../_images/fft-io.svg
+.. image:: ../_images_de/fft-io.svg
    :align: center
-   :target: ../_images/fft-io.svg
+   :target: ../_images_de/fft-io.svg
    :alt: Reference diagram for the input (seconds) and output (bandwidth) format of the FFT function showing frequency bins and delta-t and delta-f
 
 Da der Ausgang im Frequenzbereich liegt, basiert die Spanne der x-Achse auf der Abtastrate, die wir im nächsten Kapitel behandeln werden. Wenn wir mehr Samples für den Eingangsvektor verwenden, erhalten wir eine bessere Auflösung im Frequenzbereich (zusätzlich zur Verarbeitung von mehr Samples auf einmal). Wir „sehen" durch einen größeren Eingang nicht wirklich mehr Frequenzen. Die einzige Möglichkeit wäre, die Abtastrate zu erhöhen (die Abtastperiode :math:`\Delta t` zu verringern).
 
 Wie stellen wir diesen Ausgang tatsächlich dar? Als Beispiel, sagen wir, unsere Abtastrate war 1 Million Samples pro Sekunde (1 MHz). Wie wir im nächsten Kapitel lernen werden, bedeutet das, dass wir unabhängig davon, wie viele Samples wir in die FFT eingeben, nur Signale bis zu 0,5 MHz sehen können. Der Ausgang der FFT wird wie folgt dargestellt:
 
-.. image:: ../_images/negative-frequencies.svg
+.. image:: ../_images_de/negative-frequencies.svg
    :align: center
-   :target: ../_images/negative-frequencies.svg
+   :target: ../_images_de/negative-frequencies.svg
    :alt: Introducing negative frequencies
 
 Es ist immer der Fall; der Ausgang der FFT zeigt immer :math:`\text{-} f_s/2` bis :math:`f_s/2`, wobei :math:`f_s` die Abtastrate ist. D.h., der Ausgang wird immer einen negativen und einen positiven Teil haben. Wenn der Eingang komplex ist, werden die negativen und positiven Teile unterschiedlich sein, aber wenn er real ist, werden sie identisch sein.
@@ -273,15 +273,15 @@ Negative Frequenzen
 
 Was zum Teufel ist eine negative Frequenz? Im Moment musst du nur wissen, dass sie mit der Verwendung komplexer Zahlen (imaginäre Zahlen) zusammenhängen – es gibt eigentlich keine „negative Frequenz" beim Senden/Empfangen von HF-Signalen, es ist nur eine Darstellung, die wir verwenden. Hier ist eine intuitive Möglichkeit, darüber nachzudenken. Stell dir vor, wir sagen unserem SDR, es soll auf 100 MHz (das UKW-Radio-Band) abstimmen und mit einer Rate von 10 MHz abtasten. Mit anderen Worten, wir werden das Spektrum von 95 MHz bis 105 MHz betrachten. Vielleicht gibt es drei Signale:
 
-.. image:: ../_images/negative-frequencies2.svg
+.. image:: ../_images_de/negative-frequencies2.svg
    :align: center
-   :target: ../_images/negative-frequencies2.svg
+   :target: ../_images_de/negative-frequencies2.svg
 
 Wenn das SDR uns nun die Samples gibt, wird es so aussehen:
 
-.. image:: ../_images/negative-frequencies3.svg
+.. image:: ../_images_de/negative-frequencies3.svg
    :align: center
-   :target: ../_images/negative-frequencies3.svg
+   :target: ../_images_de/negative-frequencies3.svg
    :alt: Negative frequencies are simply the frequencies below the center (a.k.a. carrier) frequency that the radio tuned to
 
 Denk daran, dass wir das SDR auf 100 MHz abgestimmt haben. Das Signal, das bei etwa 97,5 MHz war, erscheint also bei -2,5 MHz, wenn wir es digital darstellen, was technisch gesehen eine negative Frequenz ist. In Wirklichkeit ist es nur eine Frequenz, die niedriger als die Mittenfrequenz ist. Das wird mehr Sinn ergeben, wenn wir mehr über Sampling lernen und Erfahrung mit unseren SDRs sammeln.
@@ -294,10 +294,10 @@ Aus mathematischer Sicht können negative Frequenzen durch Betrachtung der kompl
 .. math::
    e^{2j \pi (-f) t} = \cos(2 \pi f t) - j \sin(2 \pi f t) \quad \mathrm{\textcolor{red}{rot}}
 
-.. image:: ../_images/negative_freq_animation.gif
+.. image:: ../_images_de/negative_freq_animation.gif
    :align: center
    :scale: 75 %
-   :target: ../_images/negative_freq_animation.gif
+   :target: ../_images_de/negative_freq_animation.gif
    :alt: Animation of a positive and negative frequency sinusoid on the complex plane
 
 Der Grund, warum wir den komplexen Exponential oben verwendet haben, ist, dass ein einfaches :math:`cos()` oder :math:`sin()` sowohl positive als auch negative Frequenzen enthält, wie durch die Euler-Formel angewendet auf einen Sinus bei Frequenz :math:`f` über die Zeit :math:`t` zu sehen ist:
@@ -316,7 +316,7 @@ Reihenfolge in der Zeit spielt keine Rolle
 
 Denk daran, dass eine FFT auf vielen Samples gleichzeitig durchgeführt wird, d.h., du kannst den Frequenzbereich eines einzelnen Zeitpunkts (eines Samples) nicht beobachten; es braucht eine Zeitspanne, um damit zu arbeiten (viele Samples). Die FFT-Funktion „mischt" im Wesentlichen das Eingangssignal, um den Ausgang zu bilden, der eine andere Skala und andere Einheiten hat. Wir sind schließlich nicht mehr im Zeitbereich. Eine gute Möglichkeit, diesen Unterschied zwischen den Bereichen zu internalisieren, ist die Erkenntnis, dass das Ändern der Reihenfolge der Ereignisse im Zeitbereich die Frequenzkomponenten im Signal nicht verändert. D.h., das Durchführen **einer einzigen** FFT der folgenden zwei Signale ergibt beide dieselben zwei Spitzen, weil das Signal einfach zwei Sinuswellen bei verschiedenen Frequenzen sind. Das Ändern der Reihenfolge, in der die Sinuswellen auftreten, ändert nicht die Tatsache, dass es zwei Sinuswellen bei verschiedenen Frequenzen sind. Das setzt voraus, dass beide Sinuswellen innerhalb derselben Zeitspanne auftreten, die in die FFT eingegeben wird; wenn du die FFT-Größe verkleinerst und mehrere FFTs durchführst (wie wir es im Spektrogramm-Abschnitt tun werden), kannst du die beiden Sinuswellen unterscheiden.
 
-.. image:: ../_images/fft_signal_order.png
+.. image:: ../_images_de/fft_signal_order.png
    :scale: 50 %
    :align: center
    :alt: When performing an FFT on a set of samples, the order in time that different frequencies occurred within those samples doesn't change the resulting FFT output
@@ -339,8 +339,8 @@ Zuerst müssen wir ein Signal im Zeitbereich erstellen. Mach gerne mit deiner ei
 
 Wenn wir :code:`s` darstellen, sieht es so aus:
 
-.. image:: ../_images/fft-python1.svg
-   :target: ../_images/fft-python1.svg
+.. image:: ../_images_de/fft-python1.svg
+   :target: ../_images_de/fft-python1.svg
    :align: center
 
 Als nächstes verwenden wir NumPys FFT-Funktion:
@@ -365,22 +365,22 @@ Hinweis: Egal was du tust, wenn du auf komplexe Zahlen stößt, versuche die Mag
  plt.plot(t,S_mag,'.-')
  plt.plot(t,S_phase,'.-')
 
-.. image:: ../_images/fft-python2.svg
-   :target: ../_images/fft-python2.svg
+.. image:: ../_images_de/fft-python2.svg
+   :target: ../_images_de/fft-python2.svg
    :align: center
 
 Im Moment geben wir keine x-Achse für die Diagramme an, es ist nur der Index des Arrays (von 0 aufwärts zählend). Aus mathematischen Gründen hat der Ausgang der FFT das folgende Format:
 
-.. image:: ../_images/fft-python3.svg
+.. image:: ../_images_de/fft-python3.svg
    :align: center
-   :target: ../_images/fft-python3.svg
+   :target: ../_images_de/fft-python3.svg
    :alt: Arrangement of the output of an FFT before doing an FFT shift
 
 Wir wollen jedoch 0 Hz (DC) in der Mitte und negative Frequenzen links (so möchten wir Dinge gerne visualisieren). Jedes Mal, wenn wir eine FFT durchführen, müssen wir daher eine „FFT-Verschiebung" durchführen, was nur eine einfache Array-Neuanordnungsoperation ist, ähnlich wie eine zirkuläre Verschiebung, aber mehr ein „Leg das hierher und das dorthin". Das Diagramm unten definiert vollständig, was die FFT-Verschiebungsoperation tut:
 
-.. image:: ../_images/fft-python4.svg
+.. image:: ../_images_de/fft-python4.svg
    :align: center
-   :target: ../_images/fft-python4.svg
+   :target: ../_images_de/fft-python4.svg
    :alt: Reference diagram of the FFT shift function, showing positive and negative frequencies and DC
 
 Zu unserer Bequemlichkeit hat NumPy eine FFT-Verschiebungsfunktion, :code:`np.fft.fftshift()`. Ersetze die np.fft.fft()-Zeile durch:
@@ -411,8 +411,8 @@ Wir müssen auch die x-Achsenwerte/Beschriftungen herausfinden. Denk daran, dass
  plt.plot(f, S_phase,'.-')
  plt.show()
 
-.. image:: ../_images/fft-python5.svg
-   :target: ../_images/fft-python5.svg
+.. image:: ../_images_de/fft-python5.svg
+   :target: ../_images_de/fft-python5.svg
    :align: center
 
 Wir sehen unsere Spitze bei 0,15 Hz, was die Frequenz ist, die wir beim Erstellen der Sinuswelle verwendet haben. Das bedeutet, dass unsere FFT funktioniert hat! Wenn wir den Code, der diese Sinuswelle erzeugt hat, nicht kennen würden, aber nur die Liste der Samples hätten, könnten wir die FFT verwenden, um die Frequenz zu bestimmen. Der Grund, warum wir auch bei -0,15 Hz eine Spitze sehen, hängt damit zusammen, dass es ein reales Signal war, kein komplexes, und wir werden das später vertiefen.
@@ -425,9 +425,9 @@ Wenn wir eine FFT verwenden, um die Frequenzkomponenten unseres Signals zu messe
 
 Die Art, wie wir diese zyklische Eigenschaft ausgleichen, ist durch „Fensterfunktionen". Direkt vor der FFT multiplizieren wir den Signalabschnitt mit einer Fensterfunktion, die einfach eine beliebige Funktion ist, die an beiden Enden auf null abfällt. Das stellt sicher, dass der Signalabschnitt bei null beginnt und endet und sich verbindet. Gebräuchliche Fensterfunktionen sind Hamming, Hanning, Blackman und Kaiser. Wenn du keine Fensterfunktion anwendest, wird das als Verwendung eines „rechteckigen" Fensters bezeichnet, weil es wie die Multiplikation mit einem Array von Einsen ist. Hier sehen mehrere Fensterfunktionen aus:
 
-.. image:: ../_images/windows.svg
+.. image:: ../_images_de/windows.svg
    :align: center
-   :target: ../_images/windows.svg
+   :target: ../_images_de/windows.svg
    :alt: Windowing function in time and frequency domain of rectangular, hamming, hanning, bartlet, blackman, and kaiser windows
 
 Ein einfacher Ansatz für Anfänger ist, bei einem Hamming-Fenster zu bleiben, das in Python mit :code:`np.hamming(N)` erstellt werden kann, wobei N die Anzahl der Elemente im Array ist, was deine FFT-Größe ist. In der obigen Übung würden wir das Fenster direkt vor der FFT anwenden. Nach der 2. Codezeile würden wir einfügen:
@@ -453,14 +453,14 @@ Spektrogramm/Wasserfall
 
 Ein Spektrogramm ist die Darstellung, die Frequenz über Zeit zeigt. Es ist einfach eine Reihe von FFTs, die übereinander gestapelt sind (vertikal, wenn du die Frequenz auf der horizontalen Achse haben möchtest). Wir können es auch in Echtzeit anzeigen, oft als Wasserfall bezeichnet. Ein Spektrumanalysator ist das Gerät, das dieses Spektrogramm/diesen Wasserfall anzeigt. Das Diagramm unten zeigt, wie ein Array von IQ-Samples aufgeteilt werden kann, um ein Spektrogramm zu bilden:
 
-.. image:: ../_images/spectrogram_diagram.svg
+.. image:: ../_images_de/spectrogram_diagram.svg
    :align: center
-   :target: ../_images/spectrogram_diagram.svg
+   :target: ../_images_de/spectrogram_diagram.svg
    :alt: Spectrogram (a.k.a. waterfall) diagram showing how FFT slices are arrange/stacked to form a time-frequency plot
 
 Da ein Spektrogramm das Darstellen von 2D-Daten beinhaltet, ist es effektiv ein 3D-Diagramm, daher müssen wir eine Farbkarte verwenden, um die FFT-Magnituden darzustellen, die die „Werte" sind, die wir darstellen möchten. Hier ist ein Beispiel eines Spektrogramms mit Frequenz auf der horizontalen/x-Achse und Zeit auf der vertikalen/y-Achse. Blau stellt die niedrigste Energie dar und Rot ist die höchste. Wir können sehen, dass es bei DC (0 Hz) in der Mitte eine starke Spitze gibt, mit einem variierenden Signal darum herum. Blau stellt unseren Rauschpegel dar.
 
-.. image:: ../_images/waterfall.png
+.. image:: ../_images_de/waterfall.png
    :scale: 120 %
    :align: center
 
@@ -480,9 +480,9 @@ Denk daran, es sind nur Reihen von FFTs, die aufeinander gestapelt sind, jede Re
 
 Hier ist, wie es im Zeitbereich aussieht (erste 200 Samples):
 
-.. image:: ../_images/spectrogram_time.svg
+.. image:: ../_images_de/spectrogram_time.svg
    :align: center
-   :target: ../_images/spectrogram_time.svg
+   :target: ../_images_de/spectrogram_time.svg
 
 In Python können wir ein Spektrogramm wie folgt generieren:
 
@@ -504,9 +504,9 @@ In Python können wir ein Spektrogramm wie folgt generieren:
 
 Dies sollte das Folgende erzeugen, was kein sehr interessantes Spektrogramm ist, da es kein zeitvariables Verhalten gibt. Es gibt zwei Töne, weil wir ein reales Signal simuliert haben, und reale Signale haben immer eine negative PSD, die mit der positiven Seite übereinstimmt. Beachte, dass bei dieser Implementierung die oberste Zeile dem Beginn des Signals entspricht. Für interessantere Beispiele von Spektrogrammen schau dir https://www.IQEngine.org an!
 
-.. image:: ../_images/spectrogram.svg
+.. image:: ../_images_de/spectrogram.svg
    :align: center
-   :target: ../_images/spectrogram.svg
+   :target: ../_images_de/spectrogram.svg
 
 *********************
 FFT-Implementierung
@@ -516,9 +516,9 @@ Auch wenn NumPy die FFT bereits für uns implementiert hat, ist es schön zu wis
 
 Die Grundversion dieses Algorithmus funktioniert bei FFT-Größen als Zweierpotenz und ist für komplexe Eingaben gedacht, kann aber auch mit realen Eingaben arbeiten. Der Baustein dieses Algorithmus ist als Schmetterling bekannt, was im Wesentlichen eine N = 2 große FFT ist, bestehend aus zwei Multiplikationen und zwei Summationen:
 
-.. image:: ../_images/butterfly.svg
+.. image:: ../_images_de/butterfly.svg
    :align: center
-   :target: ../_images/butterfly.svg
+   :target: ../_images_de/butterfly.svg
    :alt: Cooley-Tukey FFT algorithm butterfly radix-2
 
 oder
@@ -532,9 +532,9 @@ wobei :math:`w^k_N = e^{j2\pi k/N}` als Twiddle-Faktoren bekannt sind (:math:`N`
 
 Der Algorithmus ist rekursiv und teilt sich in zwei Hälften, bis alles, was übrig bleibt, eine Reihe von Schmetterlingen ist; dies wird unten anhand einer FFT der Größe 8 dargestellt:
 
-.. image:: ../_images/butterfly2.svg
+.. image:: ../_images_de/butterfly2.svg
    :align: center
-   :target: ../_images/butterfly2.svg
+   :target: ../_images_de/butterfly2.svg
    :alt: Cooley-Tukey FFT algorithm size 8
 
 Jede Spalte in diesem Muster ist eine Reihe von Operationen, die parallel durchgeführt werden können, und :math:`log_2(N)` Schritte werden durchgeführt, weshalb die rechnerische Komplexität der FFT O(:math:`N\log N`) beträgt, während eine DFT O(:math:`N^2`) ist.
@@ -580,9 +580,9 @@ Für diejenigen, die lieber in Code als in Gleichungen denken, zeigt folgendes e
  plt.show()
 
 
-.. image:: ../_images/fft_in_python.svg
+.. image:: ../_images_de/fft_in_python.svg
    :align: center
-   :target: ../_images/fft_in_python.svg
+   :target: ../_images_de/fft_in_python.svg
    :alt: python implementation of fft example
 
 Für diejenigen, die an JavaScript- und/oder WebAssembly-basierten Implementierungen interessiert sind, schau dir die `WebFFT <https://github.com/IQEngine/WebFFT>`_-Bibliothek für die Durchführung von FFTs in Web- oder NodeJS-Anwendungen an; sie enthält mehrere Implementierungen und es gibt ein `Benchmark-Tool <https://webfft.com>`_, das zur Leistungsvergleich der einzelnen Implementierungen verwendet wird.

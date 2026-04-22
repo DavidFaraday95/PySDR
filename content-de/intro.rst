@@ -29,7 +29,7 @@ Dieses Lehrbuch dient als praktische Einführung in die Bereiche DSP, SDR und dr
 
 Ein Beispiel wäre ein Informatikstudent, der nach dem Abschluss an einem Job im Bereich drahtlose Kommunikation interessiert ist, obwohl es von jedem genutzt werden kann, der SDR lernen möchte und Programmiererfahrung hat. Als solches deckt es die notwendige Theorie zum Verständnis von DSP-Techniken ab, ohne die intensive Mathematik, die normalerweise in DSP-Kursen enthalten ist. Anstatt uns in Gleichungen zu vergraben, werden viele Bilder und Animationen verwendet, um die Konzepte zu vermitteln, wie die Animation der komplexen Ebene der Fourier-Reihe unten. Ich glaube, dass Gleichungen am besten *nach* dem Erlernen der Konzepte durch Visualisierungen und praktische Übungen verstanden werden. Die intensive Nutzung von Animationen ist der Grund, warum PySDR nie eine gedruckte Version haben wird, die bei Amazon verkauft wird.
 
-.. image:: ../_images/fft_logo_wide.gif
+.. image:: ../_images_de/fft_logo_wide.gif
    :scale: 70 %
    :align: center
    :alt: Das PySDR-Logo, erstellt mit einer Fourier-Transformation

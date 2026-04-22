@@ -7,7 +7,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="386.52148"
+   width="450"
    height="169.77394"
    overflow="hidden"
    version="1.1"
@@ -63,7 +63,7 @@
     <rect
        x="0"
        y="0"
-       width="326.32339"
+       width="380"
        height="143.33281"
        fill="#ffffff"
        id="rect7"
@@ -128,7 +128,7 @@
    x="258.21896"
    y="33.325336"
    id="tspan25"
-   style="stroke-width:0.679572">verschoben</tspan><tspan
+   style="stroke-width:0.679572">verschobenes</tspan><tspan
    x="260.93726"
    y="53.048508"
    id="tspan27"

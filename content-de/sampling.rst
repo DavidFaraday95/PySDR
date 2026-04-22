@@ -12,14 +12,14 @@ Grundlagen der Abtastung
 
 Bevor wir in die IQ-Abtastung einsteigen, lass uns besprechen, was Abtastung eigentlich bedeutet. Du bist vielleicht auf Abtastung gestoßen, ohne es zu merken, indem du Audio mit einem Mikrofon aufgezeichnet hast. Das Mikrofon ist ein Wandler, der Schallwellen in ein elektrisches Signal (einen Spannungspegel) umwandelt. Dieses elektrische Signal wird von einem Analog-Digital-Wandler (ADC) transformiert, der eine digitale Darstellung der Schallwelle erzeugt. Vereinfacht gesagt nimmt das Mikrofon Schallwellen auf, die in Elektrizität umgewandelt werden, und diese Elektrizität wird wiederum in Zahlen umgewandelt. Der ADC fungiert als Brücke zwischen den analogen und digitalen Domänen. SDRs sind überraschend ähnlich. Anstatt eines Mikrofons verwenden sie jedoch eine Antenne, obwohl sie auch ADCs verwenden. In beiden Fällen wird der Spannungspegel mit einem ADC abgetastet. Für SDRs gilt: Funkwellen rein, Zahlen raus.
 
-Ob wir es mit Audio- oder Hochfrequenzfrequenzen zu tun haben, wir müssen abtasten, wenn wir ein Signal digital erfassen, verarbeiten oder speichern wollen. Abtastung mag unkompliziert erscheinen, aber es steckt viel dahinter. Eine technischere Möglichkeit, die Abtastung eines Signals zu betrachten, ist das Erfassen von Werten zu bestimmten Zeitpunkten und das digitale Speichern. Sagen wir, wir haben eine zufällige Funktion :math:`S(t)`, die alles darstellen kann, und es ist eine kontinuierliche Funktion, die wir abtasten wollen:
+Egal ob wir es mit Audio- oder Hochfrequenzfrequenzen zu tun haben, müssen wir abtasten, wenn wir ein Signal digital erfassen, verarbeiten oder speichern wollen. Abtastung mag unkompliziert erscheinen, aber es steckt viel dahinter. Eine technischere Möglichkeit, die Abtastung eines Signals zu betrachten, ist das Erfassen von Werten zu bestimmten Zeitpunkten und das digitale Speichern. Sagen wir, wir haben eine zufällige Funktion :math:`S(t)`, die alles darstellen kann, und es ist eine kontinuierliche Funktion, die wir abtasten wollen:
 
-.. image:: ../_images/sampling.svg
+.. image:: ../_images_de/sampling.svg
    :align: center
-   :target: ../_images/sampling.svg
+   :target: ../_images_de/sampling.svg
    :alt: Concept of sampling a signal, showing sample period T, the samples are the blue dots
 
-Wir zeichnen den Wert von :math:`S(t)` in regelmäßigen Abständen von :math:`T` Sekunden auf, bekannt als die **Abtastperiode**. Die Häufigkeit, mit der wir abtasten, d.h. die Anzahl der pro Sekunde genommenen Samples, ist einfach :math:`\frac{1}{T}`. Wir nennen dies die **Abtastrate**, und sie ist die Umkehrung der Abtastperiode. Wenn wir beispielsweise eine Abtastrate von 10 Hz haben, beträgt die Abtastperiode 0,1 Sekunden; zwischen jedem Sample liegen 0,1 Sekunden. In der Praxis werden unsere Abtastraten in der Größenordnung von Hunderten von kHz bis zu Zehnten von MHz oder sogar höher liegen. Wenn wir Signale abtasten, müssen wir auf die Abtastrate achten, es ist ein sehr wichtiger Parameter.
+Dann zeichnen wir den Wert von :math:`S(t)` in regelmäßigen Abständen von :math:`T` Sekunden auf, bekannt als die **Abtastperiode**. Die Häufigkeit, mit der wir abtasten, d.h. die Anzahl der pro Sekunde genommenen Samples, ist einfach :math:`\frac{1}{T}`. Wir nennen dies die **Abtastrate**, und sie ist die Umkehrung der Abtastperiode. Wenn wir beispielsweise eine Abtastrate von 10 Hz haben, beträgt die Abtastperiode 0,1 Sekunden; zwischen jedem Sample liegen 0,1 Sekunden. In der Praxis werden unsere Abtastraten in der Größenordnung von Hunderten von kHz bis zu Zehnten von MHz oder sogar höher liegen. Wenn wir Signale abtasten, müssen wir auf die Abtastrate achten, es ist ein sehr wichtiger Parameter.
 
 Für diejenigen, die die Mathematik bevorzugen: Sei :math:`S_n` das Sample :math:`n`, normalerweise eine ganze Zahl beginnend bei 0. Mit dieser Konvention kann der Abtastprozess mathematisch als :math:`S_n = S(nT)` für ganzzahlige Werte von :math:`n` dargestellt werden. D.h., wir werten das analoge Signal :math:`S(t)` bei diesen Intervallen von :math:`nT` aus.
 
@@ -29,41 +29,41 @@ Nyquist-Abtastung
 
 Für ein gegebenes Signal ist die große Frage oft, wie schnell wir abtasten müssen. Lass uns ein Signal untersuchen, das nur eine Sinuswelle der Frequenz f ist, unten in Grün gezeigt. Sagen wir, wir tasten mit einer Rate Fs ab (Samples in Blau gezeigt). Wenn wir dieses Signal mit einer Rate abtasten, die gleich f ist (d.h. Fs = f), erhalten wir etwas, das so aussieht:
 
-.. image:: ../_images/sampling_Fs_0.3.svg
+.. image:: ../_images_de/sampling_Fs_0.3.svg
    :align: center
 
 Die rote gestrichelte Linie im obigen Bild rekonstruiert eine andere (falsche) Funktion, die zu denselben aufgezeichneten Samples hätte führen können. Dies zeigt, dass unsere Abtastrate zu niedrig war, da dieselben Samples von zwei verschiedenen Funktionen stammen könnten, was zu Mehrdeutigkeit führt. Wenn wir das ursprüngliche Signal genau rekonstruieren wollen, dürfen wir diese Mehrdeutigkeit nicht haben.
 
 Lass uns etwas schneller abtasten, bei Fs = 1,2f:
 
-.. image:: ../_images/sampling_Fs_0.36.svg
+.. image:: ../_images_de/sampling_Fs_0.36.svg
    :align: center
 
 Auch hier gibt es ein anderes Signal, das zu diesen Samples passen könnte. Diese Mehrdeutigkeit bedeutet, dass wenn jemand uns diese Liste von Samples geben würde, wir nicht unterscheiden könnten, welches Signal das ursprüngliche war, basierend auf unserer Abtastung.
 
 Wie wäre es mit Abtastung bei Fs = 1,5f:
 
-.. image:: ../_images/sampling_Fs_0.45.svg
+.. image:: ../_images_de/sampling_Fs_0.45.svg
    :align: center
    :alt: Example of sampling ambiguity when a signal is not sampled fast enough (below the Nyquist rate)
 
 Immer noch nicht schnell genug! Gemäß einem DSP-Theoriestück, das wir nicht vertiefen werden, musst du mit **der doppelten** Frequenz des Signals abtasten, um die Mehrdeutigkeit zu beseitigen, die wir erleben:
 
-.. image:: ../_images/sampling_Fs_0.6.svg
+.. image:: ../_images_de/sampling_Fs_0.6.svg
    :align: center
 
 Diesmal gibt es kein falsches Signal, weil wir schnell genug abgetastet haben, dass kein Signal existiert, das zu diesen Samples passt außer dem, das du siehst (es sei denn, du gehst *höher* in der Frequenz, aber das werden wir später besprechen).
 
 Im obigen Beispiel war unser Signal nur eine einfache Sinuswelle, die meisten tatsächlichen Signale werden viele Frequenzkomponenten haben. Um ein gegebenes Signal genau abzutasten, muss die Abtastrate „mindestens doppelt so hoch wie die Frequenz der maximalen Frequenzkomponente" sein. Hier ist eine Visualisierung anhand eines Beispiel-Frequenzbereichsdiagramms; beachte, dass es immer einen Rauschpegel gibt, sodass die höchste Frequenz normalerweise eine Annäherung ist:
 
-.. image:: ../_images/max_freq.svg
+.. image:: ../_images_de/max_freq.svg
    :align: center
-   :target: ../_images/max_freq.svg
+   :target: ../_images_de/max_freq.svg
    :alt: Nyquist sampling means that your sample rate is higher than the signal's maximum bandwidth
 
 Wir müssen die höchste Frequenzkomponente identifizieren, sie verdoppeln und sicherstellen, dass wir mit dieser Rate oder schneller abtasten. Die Mindestrate, mit der wir abtasten können, wird als Nyquist-Rate bezeichnet. Mit anderen Worten, die Nyquist-Rate ist die Mindestrate, mit der ein (bandbegrenztes) Signal abgetastet werden muss, um alle seine Informationen zu erhalten. Es ist ein äußerst wichtiges Stück Theorie in DSP und SDR, das als Brücke zwischen kontinuierlichen und diskreten Signalen dient.
 
-.. image:: ../_images/nyquist_rate.png
+.. image:: ../_images_de/nyquist_rate.png
    :scale: 70%
    :align: center
 
@@ -85,7 +85,7 @@ Als nächstes weisen wir Variablen zu, um die **Amplitude** von Sinus und Kosinu
 
 Wir können dies visuell sehen, indem wir I und Q gleich 1 setzen:
 
-.. image:: ../_images/IQ_wave.png
+.. image:: ../_images_de/IQ_wave.png
    :scale: 70%
    :align: center
    :alt: I and Q visualized as amplitudes of sinusoids that get summed together
@@ -122,7 +122,7 @@ wobei
 
 Mit diesem I- und Q-Ansatz können wir jede gewünschte Magnitude und Phase übertragen, mithilfe einer Schaltung, die ungefähr so aussieht:
 
-.. image:: ../_images/IQ_diagram.png
+.. image:: ../_images_de/IQ_diagram.png
    :scale: 80%
    :align: center
    :alt: Diagram showing how I and Q are modulated onto a carrier
@@ -138,10 +138,10 @@ Sagen wir, wir haben ein IQ-Sample, die einzelne komplexe Zahl :math:`I + jQ`. W
 
 Obwohl wir die Mathematik gesehen haben, lass uns mit dem Addieren zweier Sinusoide spielen, die 90 Grad außer Phase sind. Im folgenden Video gibt es einen Schieberegler zum Anpassen von I und einen weiteren für Q, die Amplitude des Kosinus und Sinus. Was dargestellt wird, sind der Kosinus (rot), der Sinus (blau) und die Summe der beiden (grün).
 
-.. image:: ../_images/IQ3.gif
+.. image:: ../_images_de/IQ3.gif
    :scale: 100%
    :align: center
-   :target: ../_images/IQ3.gif
+   :target: ../_images_de/IQ3.gif
    :alt: GNU Radio animation showing I and Q as amplitudes of sinusoids that get summed together
 
 Der Code, der für diese auf pyqtgraph basierende Python-App verwendet wurde, kann `hier <https://raw.githubusercontent.com/777arc/PySDR/master/figure-generating-scripts/sin_plus_cos.py>`_ gefunden werden.
@@ -154,13 +154,13 @@ Komplexe Zahlen
 
 Letztendlich ist die IQ-Konvention eine alternative Möglichkeit, Magnitude und Phase darzustellen, was uns zu komplexen Zahlen und der Fähigkeit führt, sie auf einer komplexen Ebene darzustellen. Du hast vielleicht komplexe Zahlen in anderen Kursen gesehen. Nehmen wir die komplexe Zahl 0,7-0,4j als Beispiel:
 
-.. image:: ../_images/complex_plane_1.png
+.. image:: ../_images_de/complex_plane_1.png
    :scale: 70%
    :align: center
 
 Eine komplexe Zahl ist wirklich nur zwei Zahlen zusammen, ein realer und ein imaginärer Anteil. Eine komplexe Zahl hat auch eine Magnitude und Phase, was mehr Sinn ergibt, wenn du sie als Vektor statt als Punkt betrachtest. Magnitude ist die Länge der Linie zwischen dem Ursprung und dem Punkt (d.h. Länge des Vektors), während die Phase der Winkel zwischen dem Vektor und 0 Grad ist, den wir als die positive reale Achse definieren:
 
-.. image:: ../_images/complex_plane_2.png
+.. image:: ../_images_de/complex_plane_2.png
    :scale: 70%
    :align: center
    :alt: A vector on the complex plane
@@ -176,7 +176,7 @@ In Python kannst du np.abs(x) und np.angle(x) für die Magnitude und Phase verwe
 
 Du hast vielleicht inzwischen herausgefunden, wie dieses Vektor- oder Phasor-Diagramm mit der IQ-Konvention zusammenhängt: I ist real und Q ist imaginär. Von diesem Punkt an, wenn wir die komplexe Ebene zeichnen, werden wir sie mit I und Q anstelle von real und imaginär beschriften. Sie sind immer noch komplexe Zahlen!
 
-.. image:: ../_images/complex_plane_3.png
+.. image:: ../_images_de/complex_plane_3.png
    :scale: 70%
    :align: center
 
@@ -207,7 +207,7 @@ Empfängerseite
 
 Lass uns nun die Perspektive eines Radioempfängers einnehmen, der versucht, ein Signal zu empfangen (z.B. ein UKW-Radiosignal). Mit IQ-Abtastung sieht das Diagramm nun so aus:
 
-.. image:: ../_images/IQ_diagram_rx.png
+.. image:: ../_images_de/IQ_diagram_rx.png
    :scale: 70%
    :align: center
    :alt: Receiving IQ samples by directly multiplying the input signal by a sine wave and a 90 degree shifted version of that sine wave
@@ -242,7 +242,7 @@ zu nur I und Q.
 
 Lass uns die Abwärtsmischung im Frequenzbereich visualisieren:
 
-.. image:: ../_images/downconversion.png
+.. image:: ../_images_de/downconversion.png
    :scale: 60%
    :align: center
    :alt: The downconversion process where a signal is frequency shifted from RF to 0 Hz or baseband
@@ -264,9 +264,9 @@ Empfängerarchitekturen
 
 Die Abbildung im Abschnitt „Empfängerseite" zeigt, wie das Eingangssignal heruntergemischt und in I und Q aufgeteilt wird. Diese Anordnung wird als „Direktmischung" oder „Zero-IF" bezeichnet, weil die HF-Frequenzen direkt ins Basisband konvertiert werden. Eine weitere Option ist, gar nicht herunterzumischen und so schnell abzutasten, um alles von 0 Hz bis 1/2 der Abtastrate zu erfassen. Diese Strategie wird „Direktabtastung" oder „Direkt-HF" genannt und erfordert einen äußerst teuren ADC-Chip. Eine dritte Architektur, die beliebt ist, weil es so war, wie alte Radios arbeiteten, ist als „Superhet" bekannt. Sie beinhaltet Abwärtsmischung, aber nicht bis auf 0 Hz. Sie platziert das Zielsignal bei einer Zwischenfrequenz, bekannt als „ZF". Ein rauscharmer Verstärker (LNA) ist einfach ein Verstärker, der für sehr schwache Signale am Eingang ausgelegt ist. Hier sind die Blockdiagramme dieser drei Architekturen; beachte, dass auch Variationen und Hybriden dieser Architekturen existieren:
 
-.. image:: ../_images/receiver_arch_diagram.svg
+.. image:: ../_images_de/receiver_arch_diagram.svg
    :align: center
-   :target: ../_images/receiver_arch_diagram.svg
+   :target: ../_images_de/receiver_arch_diagram.svg
    :alt: Three common receiver architectures: direct sampling, direct conversion, and superheterodyne
 
 ***********************************
@@ -275,7 +275,7 @@ Basisband- und Bandpasssignale
 
 Wir bezeichnen ein Signal, das um 0 Hz zentriert ist, als „Basisband". Umgekehrt bezieht sich „Bandpass" darauf, wenn ein Signal bei einer HF-Frequenz weit von 0 Hz entfernt existiert, das für die drahtlose Übertragung nach oben verschoben wurde. Es gibt keine Vorstellung von einer „Basisbandübertragung", weil man nichts Imaginäres übertragen kann. Ein Signal im Basisband kann perfekt bei 0 Hz zentriert sein, wie der rechte Teil der Abbildung in Abschnitt :ref:`downconversion-section`. Es könnte *nahe* an 0 Hz sein, wie die zwei unten gezeigten Signale. Diese zwei Signale gelten immer noch als Basisband. Ebenfalls gezeigt ist ein Beispiel-Bandpasssignal, das bei einer sehr hohen Frequenz :math:`f_c` zentriert ist.
 
-.. image:: ../_images/baseband_bandpass.png
+.. image:: ../_images_de/baseband_bandpass.png
    :scale: 50%
    :align: center
    :alt: Baseband vs bandpass
@@ -286,7 +286,7 @@ Wir neigen dazu, Signale im Basisband zu erstellen, aufzuzeichnen oder zu analys
 
 Wenn wir keine imaginäre Komponente in unserem Signal haben, haben wir keine Q-Werte (oder du kannst dir vorstellen, dass alle Q-Werte gleich null sind). Das bedeutet, dass wir nur Kosinussignale ohne Phasenverschiebung haben. Eine Summe von Kosinussignalen ohne Phasenverschiebung wird symmetrisch um die y-Achse sein, wenn wir den Frequenzbereich darstellen, weil die positiven und negativen Komponenten dieselben sind.
 
-Im früheren Abschnitt, wo wir mit dem komplexen Punkt 0,7 - 0,4j gespielt haben, war das im Wesentlichen ein Sample in einem Basisbands ignal. Die meiste Zeit, wenn du komplexe Samples (IQ-Samples) siehst, bist du im Basisband. Signale werden selten digital bei HF dargestellt oder gespeichert, wegen der Datenmenge, die das erfordern würde, und der Tatsache, dass wir uns normalerweise nur für einen kleinen Teil des HF-Spektrums interessieren.
+Im früheren Abschnitt, wo wir mit dem komplexen Punkt 0,7 - 0,4j gespielt haben, war das im Wesentlichen ein Sample in einem Basisbandsignal. Die meiste Zeit, wenn du komplexe Samples (IQ-Samples) siehst, bist du im Basisband. Signale werden selten digital bei HF dargestellt oder gespeichert, wegen der Datenmenge, die das erfordern würde, und der Tatsache, dass wir uns normalerweise nur für einen kleinen Teil des HF-Spektrums interessieren.
 
 ***************************
 DC-Spitze und Offset-Abstimmung
@@ -297,7 +297,7 @@ Sie wird als „DC-Versatz" oder „DC-Spitze" oder manchmal „LO-Leckage" beze
 
 Hier ist ein Beispiel einer DC-Spitze:
 
-.. image:: ../_images/dc_spike.png
+.. image:: ../_images_de/dc_spike.png
    :scale: 50%
    :align: center
    :alt: DC spike shown in a power spectral density (PSD)
@@ -312,7 +312,7 @@ Eine schnelle Möglichkeit, mit dem DC-Versatz umzugehen, ist das Signal zu übe
 Als Beispiel sagen wir, wir wollen 5 MHz Spektrum bei 100 MHz betrachten.
 Was wir stattdessen tun können, ist mit 20 MHz bei einer Mittenfrequenz von 95 MHz abzutasten.
 
-.. image:: ../_images/offtuning.png
+.. image:: ../_images_de/offtuning.png
    :scale: 40 %
    :align: center
    :alt: The offset tuning process to avoid the DC spike
@@ -447,11 +447,11 @@ Hier ist ein vollständiges Codebeispiel, das das Generieren eines Signals (komp
 
 Ausgabe:
 
-.. image:: ../_images/fft_example1.svg
+.. image:: ../_images_de/fft_example1.svg
    :align: center
 
 ******************
-Weiterführende Literatur
+Weiterführende Literatur (auf Englisch)
 ******************
 
 #. https://web.archive.org/web/20220613052830/http://rfic.eecs.berkeley.edu/~niknejad/ee242/pdf/eecs242_lect3_rxarch.pdf

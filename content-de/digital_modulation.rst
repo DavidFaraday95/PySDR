@@ -6,7 +6,7 @@ Digitale Modulation
 
 In diesem Kapitel werden wir das *tatsächliche Übertragen von Daten* mittels digitaler Modulation und drahtlosen Symbolen besprechen! Wir werden Signale entwerfen, die „Informationen" übermitteln, z.B. Einsen und Nullen, unter Verwendung von Modulationsverfahren wie ASK, PSK, QAM und FSK. Wir werden auch IQ-Diagramme und Konstellationen besprechen und das Kapitel mit einigen Python-Beispielen abschließen.
 
-Das Hauptziel der Modulation ist es, so viele Daten wie möglich in so wenig Spektrum wie möglich zu pressen. Technisch gesehen wollen wir die „spektrale Effizienz" in Einheiten von Bit/s/Hz maximieren. Das schnellere Übertragen von Einsen und Nullen erhöht die Bandbreite unseres Signals (erinnere dich an Fourier-Eigenschaften), was bedeutet, dass mehr Spektrum genutzt wird. Wir werden auch andere Techniken als das schnellere Senden untersuchen. Es wird viele Kompromisse geben, wenn wir entscheiden, wie wir modulieren wollen, aber es wird auch Raum für Kreativität geben.
+Das Hauptziel der Modulation ist es, so viele Daten wie möglich in so wenig Spektrum wie möglich zu pressen. Technisch gesehen wollen wir die „spektrale Effizienz" in Einheiten von Bit/s/Hz maximieren. Das schnellere Übertragen von Einsen und Nullen erhöht die Bandbreite unseres Signals (erinnere dich an Fourier-Eigenschaften), was bedeutet, dass mehr Spektrum genutzt wird. Wir werden auch andere Techniken als nur das schnellere Senden untersuchen. Es wird viele Kompromisse geben, wenn wir entscheiden, wie wir modulieren wollen, aber es wird auch Raum für Kreativität geben.
 
 *******************
 Symbole
@@ -51,7 +51,7 @@ Nimm dir einen Moment, um diese Fragen zu beantworten:
 *******************
 Drahtlose Symbole
 *******************
-Frage: Warum können wir das oben in der Abbildung gezeigte Ethernet-Signal nicht direkt übertragen? Es gibt viele Gründe, die zwei größten sind:
+Frage: Warum können wir das oben in der Abbildung gezeigte Ethernet-Signal nicht direkt übertragen? Es gibt viele Gründe, die zwei Größten sind:
 
 1. Niedrige Frequenzen erfordern *riesige* Antennen, und das obige Signal enthält Frequenzen bis hinunter zu DC (0 Hz). Wir können DC nicht übertragen.
 2. Rechteckwellen belegen für die Bits pro Sekunde übermäßig viel Spektrum – erinnere dich aus dem Kapitel :ref:`freq-domain-chapter`, dass schnelle Änderungen im Zeitbereich eine große Menge an Bandbreite/Spektrum verbrauchen:
@@ -142,7 +142,8 @@ Stattdessen stellen wir die Phase normalerweise in der komplexen Ebene dar.
 IQ-Diagramme/Konstellationen
 ***********************
 
-Du hast IQ-Diagramme bereits im Unterabschnitt komplexe Zahlen des Kapitels :ref:`sampling-chapter` gesehen, aber jetzt werden wir sie auf eine neue und interessante Weise verwenden. Für ein gegebenes Symbol können wir die Amplitude und Phase in einem IQ-Diagramm zeigen. Für das BPSK-Beispiel sagten wir, dass wir Phasen von 0 und 180 Grad haben. Lass uns diese zwei Punkte im IQ-Diagramm darstellen. Wir nehmen eine Magnitude von 1 an. In der Praxis spielt es keine Rolle, welche Magnitude du verwendest; ein höherer Wert bedeutet ein stärkeres Signal, aber du kannst auch einfach den Verstärkungsgrad des Verstärkers erhöhen.
+Du hast IQ-Diagramme bereits im Unterabschnitt komplexe Zahlen des Kapitels :ref:`sampling-chapter` gesehen, aber jetzt werden wir sie auf eine neue und interessante Weise verwenden.
+Für ein gegebenes Symbol können wir die Amplitude und Phase in einem IQ-Diagramm zeigen. Für das BPSK-Beispiel sagten wir, dass wir Phasen von 0 und 180 Grad haben. Lass uns diese zwei Punkte im IQ-Diagramm darstellen. Wir nehmen eine Magnitude von 1 an. In der Praxis spielt es keine Rolle, welche Magnitude du verwendest; ein höherer Wert bedeutet ein stärkeres Signal, aber du kannst auch einfach den Verstärkungsgrad des Verstärkers erhöhen.
 
 .. image:: ../_images/bpsk_iq.png
    :scale: 80 %
@@ -252,7 +253,8 @@ Das obige Beispiel wäre 4-FSK, also gäbe es zwei Bit pro Symbol. Der Frequenza
 
 Wenn du FSK verwendest, musst du eine kritische Frage stellen: Wie groß soll der Abstand zwischen den Frequenzen sein? Wir bezeichnen diesen Abstand oft als :math:`\Delta f` in Hz. Wir wollen Überlappungen im Frequenzbereich vermeiden, damit der Empfänger weiß, welche Frequenz ein bestimmtes Symbol verwendet hat, daher muss :math:`\Delta f` groß genug sein. Die Breite jedes Trägers in der Frequenz ist eine Funktion unserer Symbolrate und eines angewendeten Pulsformungsfilters. Mehr Symbole pro Sekunde bedeutet kürzere Symbole, was breitere Bandbreite bedeutet (erinnere dich an die inverse Beziehung zwischen Zeit- und Frequenzskalierung). Je schneller wir Symbole übertragen, desto breiter wird jeder Träger, und folglich müssen wir :math:`\Delta f` größer machen, um überlappende Träger zu vermeiden.
 
-IQ-Diagramme können nicht verwendet werden, um verschiedene Frequenzen zu zeigen. Sie zeigen Magnitude und Phase. Obwohl es möglich ist, FSK im Zeitbereich zu zeigen, macht es mehr als 2 Frequenzen schwierig, zwischen Symbolen zu unterscheiden:
+IQ-Diagramme können nicht verwendet werden, um verschiedene Frequenzen zu zeigen. Sie zeigen Magnitude und Phase. 
+Obwohl es möglich ist, FSK im Zeitbereich zu zeigen, macht es mehr als 2 Frequenzen schwierig, zwischen Symbolen zu unterscheiden:
 
 .. image:: ../_images/fsk2.svg
    :align: center
@@ -300,14 +302,14 @@ Als nächstes baust du den Ausgang auf, indem du das Eingangsbit mit dem vorheri
 
 .. code-block::
 
- Eingang:     1 1 0 0 1 1 1 1 1 0
+ Eingang:    1 1 0 0 1 1 1 1 1 0
  Ausgang:  1 0
 
 Wiederhole für den Rest und du erhältst:
 
 .. code-block::
 
- Eingang:     1 1 0 0 1 1 1 1 1 0
+ Eingang:    1 1 0 0 1 1 1 1 1 0
  Ausgang:  1 0 1 1 1 0 1 0 1 0 0
 
 Nach der Anwendung der Differenzialkodierung würden wir letztendlich [1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0] übertragen. Die Einsen und Nullen werden immer noch auf die positiven und negativen Symbole abgebildet, die wir zuvor besprochen haben.

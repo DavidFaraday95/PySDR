@@ -14,7 +14,7 @@ E-Mail: marc@pysdr.org
 
 Fakultätsseite der University of Maryland: `cs.umd.edu/people/sdr <https://www.cs.umd.edu/people/sdr>`_
 
-.. image:: ../_images/silly_marc.jpg
+.. image:: ../_images_de/silly_marc.jpg
    :scale: 100 %
    :align: center
    :alt: Foto von Marc Lichtman, dem Autor von PySDR, mit seiner Katze in einer lustigen Pose
